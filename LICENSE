@@ -1,0 +1,91 @@
+# Project Axiom — Source Available License
+
+**Copyright © 2026 Daniel B. (Benjamin) Howe. All rights reserved.**
+
+---
+
+## 1. Definitions
+
+- **"The Work"** means the Project Axiom architecture specifications, design documents, diagrams, schemas, pseudocode, and any associated source code contained in this repository.
+- **"You"** means the individual or entity exercising rights under this license.
+- **"Non-Commercial Use"** means any use of the Work where neither You nor any affiliated entity generates more than **USD $100,000 in annual gross revenue** from products, services, or activities that directly or materially incorporate, derive from, or are enabled by the Work.
+- **"Commercial Use"** means any use that exceeds the Non-Commercial Use threshold defined above, or any use by an entity generating more than USD $100,000 in annual gross revenue from the Work, regardless of whether the specific use is itself directly monetized.
+- **"Contribution"** means any modification, addition, suggestion, or derivative work submitted to this repository by You via pull request, issue, or other means.
+
+---
+
+## 2. Non-Commercial Grant
+
+Subject to the terms of this license, Daniel B. (Benjamin) Howe grants You a **worldwide, royalty-free, non-exclusive license** to:
+
+- Access, read, study, and evaluate the Work
+- Use the Work in personal, academic, or research contexts
+- Modify the Work for Non-Commercial purposes
+- Share and distribute the Work and derivative works for Non-Commercial purposes, provided that:
+  - You retain this license notice and copyright statement in all copies or substantial portions of the Work
+  - You clearly attribute the original Work to **Daniel B. (Benjamin) Howe / Project Axiom**
+  - You do not misrepresent the origin of the Work
+
+This grant applies for as long as your use remains Non-Commercial as defined above.
+
+---
+
+## 3. Commercial Use Requires a Separate Agreement
+
+**Any Commercial Use of the Work is prohibited without a separate written commercial license agreement with Daniel B. (Benjamin) Howe.**
+
+If your use of the Work meets or exceeds the Commercial Use threshold, you must:
+
+1. Cease use of the Work until a commercial license is obtained, or
+2. Contact Daniel B. (Benjamin) Howe to negotiate terms before proceeding
+
+To inquire about commercial licensing, open an issue in this repository marked **[Commercial License Inquiry]** or contact through the channels listed in the repository's README.
+
+---
+
+## 4. Contributions
+
+By submitting a Contribution to this repository, You agree that:
+
+- You grant Daniel B. (Benjamin) Howe a **perpetual, irrevocable, worldwide, royalty-free license** to use, modify, incorporate, sublicense, and distribute your Contribution as part of the Work under any license terms Daniel B. (Benjamin) Howe chooses, including commercial terms
+- You retain the right to use your own Contribution independently under the terms of this license
+- You represent that you have the legal right to make the Contribution and that it does not infringe any third-party rights
+
+---
+
+## 5. No Warranty
+
+THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. IN NO EVENT SHALL DANIEL B. (BENJAMIN) HOWE BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM OR IN CONNECTION WITH THE WORK OR THE USE OF THE WORK.
+
+---
+
+## 6. Termination
+
+Your rights under this license terminate automatically if you:
+
+- Exceed the Non-Commercial Use threshold without obtaining a commercial license
+- Fail to provide proper attribution
+- Misrepresent the origin or authorship of the Work
+
+Upon termination, you must cease all use and distribution of the Work and any derivative works.
+
+---
+
+## 7. Governing Law
+
+This license shall be governed by and construed in accordance with the laws of the jurisdiction in which Daniel B. (Benjamin) Howe resides, without regard to conflict of law principles.
+
+---
+
+## 8. Entire Agreement
+
+This license constitutes the entire agreement between You and Daniel B. (Benjamin) Howe with respect to the Work. Any commercial use requires a separate written agreement that supersedes and supplements this license for the scope of that agreement only.
+
+---
+
+*Project Axiom is a governance-first, epistemically explicit, modular cognitive architecture.*
+*For contributions, discussion, and collaboration, see the repository README.*
+
+---
+
+> **Note:** This is a custom source-available license, not an OSI-approved open-source license. It is designed to keep the Work open for community use while preserving the author's rights to negotiate terms for significant commercial use. If you are uncertain whether your use qualifies as Non-Commercial, contact the author before proceeding.
