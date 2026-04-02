@@ -35,7 +35,7 @@ See [`project_axiom_v_0_5.md`](project_axiom_v_0_5.md) for the full specificatio
 ## Document History
 
 | Version | Description |
-|---|---|
+| --- | --- |
 | V0.1 | Initial architecture sketch |
 | V0.2 | Expanded modular cognition framing |
 | V0.3 | Domain model, generator-governor pattern, memory architecture |
@@ -71,6 +71,7 @@ See [`project_axiom_v_0_5.md`](project_axiom_v_0_5.md) for the full specificatio
 23. Implementation Archetypes (3 archetypes)
 24. Roadmap
 25. Conclusion
+
 - Appendix A: Design Rationale
 - Appendix B: Core Vocabulary (component / state / control)
 - Appendix C: Minimal Viable Axiom

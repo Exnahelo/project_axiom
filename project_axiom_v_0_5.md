@@ -226,7 +226,7 @@ Components operate under one or more of the following authority classes:
 The following table defines permission assignments across system components. Symbols: **Y** = permitted, **N** = not permitted, **C** = conditional on governance approval, **L** = limited to defined scope.
 
 | Component | Read | Propose | Validate | Commit | Block | Execute | Override | Audit Required |
-|---|---|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Interface Layer | Y | Y | N | N | N | N | N | Conditional |
 | Executive Synthesis Layer | Y | Y | N | N | N | N | N | Conditional |
 | Local Router | Y | L | N | N | N | N | N | Tier-1 only |
@@ -242,6 +242,7 @@ The following table defines permission assignments across system components. Sym
 | Human Operator | C | Y | Y | C | Y | C | L (by policy scope) | Always |
 
 **Notes:**
+
 - "Commit" for Governance Layer is conditional: governance may authorize commits but must not self-authorize constitutional overrides.
 - "Override" for Governance Layer is limited: governance may override lower-layer decisions but not constitutional constraints.
 - "Override" for Human Operator is limited: human operators may override within explicitly defined policy scope; they may not override constitutional constraints without a formal amendment process.
@@ -258,6 +259,7 @@ When a component exceeds its confidence, authority, or domain scope, the issue e
 4. Governance Layer → Human Oversight Interface
 
 Escalation is mandatory when:
+
 - A component's confidence in its own output falls below threshold
 - A proposed action or mutation exceeds the component's authority class
 - A contradiction is detected that affects action-authoritative beliefs
@@ -291,6 +293,7 @@ Only unresolved, high-priority, contradictory, or cross-domain synthesis problem
 ### 8.3 Workspace Admission Triggers
 
 Global Workspace activation is triggered by:
+
 - Subsystem conflict that cannot be resolved at domain level
 - High anomaly score from Salience and Priority Region
 - Cross-domain synthesis requirement
@@ -303,7 +306,7 @@ Global Workspace activation is triggered by:
 All inter-component coordination messages must include the following minimum fields:
 
 | Field | Description |
-|---|---|
+| --- | --- |
 | `sender_id` | Originating component identifier |
 | `recipient_id` | Target component identifier |
 | `trace_id` | Unique identifier linking all messages in a task chain |
@@ -320,6 +323,7 @@ All inter-component coordination messages must include the following minimum fie
 ### 8.5 Redundancy and Failover
 
 Future implementations must support:
+
 - Replicated coordinators at Domain and Global levels
 - Heartbeat monitoring for coordination components
 - Election and failover mechanisms
@@ -367,6 +371,7 @@ Hypothesis Object
 ```
 
 Transitions between states require:
+
 - Hypothesis → Candidate Belief: domain assignment and initial provenance
 - Candidate → Supported: validation service approval
 - Candidate → Quarantined: contradiction detection or trust threshold breach
@@ -459,7 +464,7 @@ Domain tagging is weighted and multi-label. A claim may carry partial weights ac
 **Primary Domains:**
 
 | Domain | Distinguishing Feature | Primary Evidence Type |
-|---|---|---|
+| --- | --- | --- |
 | Formal | Provable symbolic relations | Proof, derivation, logical consistency |
 | Empirical | Observable, testable, measurable | Statistical evidence, replication, causal models |
 | Historical | Claims about past events and records | Source comparison, testimony, temporal anchoring |
@@ -560,6 +565,7 @@ Governance in Axiom is a system control plane. It manages permissions, validatio
 The constitutional layer contains hard rules that cannot be bypassed by user preference, lens selection, regional autonomy, or optimization pressure.
 
 **Required constitutional functions:**
+
 - Preserve core system integrity
 - Prevent prohibited action classes
 - Enforce auditability minimums
@@ -574,6 +580,7 @@ The constitutional layer contains hard rules that cannot be bypassed by user pre
 Lenses are constrained interpretive overlays. They modify interpretation, prioritization, and explanation framing. They do not modify evidence contents, provenance history, or constitutional constraints.
 
 **Lenses may modify:**
+
 - Normative weighting
 - Utility priorities
 - Explanation framing
@@ -581,6 +588,7 @@ Lenses are constrained interpretive overlays. They modify interpretation, priori
 - Acceptable tradeoff emphasis
 
 **Lenses may not modify:**
+
 - Raw provenance records
 - Formal truths
 - Recorded evidence contents
@@ -592,12 +600,14 @@ Lenses are constrained interpretive overlays. They modify interpretation, priori
 The preference layer allows personalization within constitutional and lens constraints.
 
 **Allowed preference categories:**
+
 - Communication style and verbosity
 - Selected lenses within authorized scope
 - Risk tolerance within defined domain bounds
 - Performance and efficiency preferences
 
 **Forbidden preference categories:**
+
 - Disabling constitutional safety rules
 - Rewriting provenance
 - Suppressing audit logs
@@ -614,6 +624,7 @@ When governance layers conflict, the system applies the following priority order
 5. If unresolved after applying this ordering, the action is downgraded, delayed, or escalated.
 
 **Governance resolution outputs:**
+
 - allow
 - allow with annotation
 - rewrite with constraints
@@ -630,6 +641,7 @@ Certain classes of system mutation, policy revision, validator replacement, or h
 - Enable policy amendment through a defined process rather than system drift
 
 Human authorization is required when:
+
 - A proposed action would alter constitutional rules
 - A proposed mutation would affect the authority matrix
 - A governance conflict cannot be resolved by priority ordering
@@ -647,7 +659,7 @@ Human override does not bypass constitutional constraints. Human operators act w
 Threat modeling is first-class architecture in Axiom, not later hardening.
 
 | Threat Class | Description |
-|---|---|
+| --- | --- |
 | Adversarial input attacks | Crafted inputs designed to manipulate belief formation or trigger unsafe actions |
 | Evidence poisoning | Injection of false or misleading evidence into the validation pipeline |
 | Provenance spoofing | Falsification of source or derivation records to elevate trust in invalid claims |
@@ -661,7 +673,7 @@ Threat modeling is first-class architecture in Axiom, not later hardening.
 ### 12.2 Threat Response Map
 
 | Threat Class | Detection Point | Affected Subsystem | First Containment Action | Recovery Mode |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | Adversarial input | Interface Layer, Validation Services | Belief formation | Quarantine candidate belief; flag source | Rollback dependent updates; human review if propagated |
 | Evidence poisoning | Validation Services, Trust Model | Belief formation, Semantic Memory | Quarantine candidate belief; reduce source trust score | Rollback dependent updates; human review if propagated |
 | Provenance spoofing | Audit Store, Validation Services | Provenance records | Quarantine affected beliefs; alert Governance Layer | Audit trace review; human review required |
@@ -749,6 +761,7 @@ No durable state mutation occurs. Working memory is cleared after task completio
 ### 14.1 Purpose
 
 Every major task is routed by three dimensions:
+
 - **Region:** where processing should occur
 - **Domain:** what evidentiary standard applies
 - **Priority:** how urgently and cautiously it should be handled
@@ -758,7 +771,7 @@ No task should be processed as if all regions, domains, and priorities are equal
 ### 14.2 Cognitive Regions
 
 | Region | Primary Function |
-|---|---|
+| --- | --- |
 | Perception Region | Transforms raw input into structured internal signals |
 | Language Region | Linguistic interpretation, generation, translation, interaction packaging |
 | Symbolic Reasoning Region | Logic, formal operations, theorem-like derivations, rule transformations |
@@ -775,7 +788,7 @@ No task should be processed as if all regions, domains, and priorities are equal
 ### 14.3 Priority Tiers
 
 | Tier | Classification | Characteristics |
-|---|---|---|
+| --- | --- | --- |
 | Tier 1 | Constitutional and safety-critical | Highest urgency; lowest risk tolerance; mandatory governance review; human oversight may be required |
 | Tier 2 | Operationally critical | High urgency; constrained risk tolerance; governance review required for mutations |
 | Tier 3 | Deliberative and high-value | Standard deliberation depth; normal validation requirements |
@@ -784,7 +797,7 @@ No task should be processed as if all regions, domains, and priorities are equal
 ### 14.4 Routing Policy Examples
 
 | Task Type | Region(s) | Domain(s) | Priority Tier | Validation Route | Escalation Rule |
-|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- |
 | Formal proof verification | Symbolic Reasoning | Formal | Tier 3 | Formal Validation Service | Escalate on contradiction with validated formal beliefs |
 | Real-time safety anomaly | Salience + Operational | Operational | Tier 1–2 | Operational Validation Service | Escalate immediately on safety breach |
 | Policy analysis | Language + Social-Institutional + Governance | Normative + Social-Institutional + Empirical | Tier 3 | Multi-domain validation | Arbitration if unresolved conflict |
@@ -802,6 +815,7 @@ Each Cognitive Region operates as a domain-specialized module with a defined ope
 ### 15.1 Standard Region Schema
 
 Each region is defined by:
+
 - **Role:** primary function
 - **Inputs:** typical input types
 - **Outputs:** typical output types
@@ -930,6 +944,7 @@ Axiom uses a proposal–validation pattern across multiple layers. Candidate out
 ### 16.4 Anti-Capture Requirements
 
 To prevent validators from being captured by the components they validate:
+
 - Architectural diversity between generator and validator components where possible
 - Bounded retry loops (deadlock safeguard: after a bounded number of failed cycles, the system must downgrade task scope, request clarification, escalate, or refuse)
 - Stochastic audit depth
@@ -943,6 +958,7 @@ To prevent validators from being captured by the components they validate:
 ### 17.1 Trust Object Types
 
 Trust is assigned separately to:
+
 - **Source trust:** reliability of external information sources
 - **Subsystem trust:** reliability of internal components
 - **Validator trust:** reliability of validation services
@@ -983,6 +999,7 @@ These are not the same kind of trust and must not be blended into a single score
 ### 18.2 Connectivity Policy
 
 The system explicitly defines:
+
 - Permitted component-to-component pathways
 - Privileged pathways (e.g., direct Governance Layer access)
 - Forbidden pathways (e.g., Action Layer to Memory Subsystem without governance intermediary)
@@ -1005,7 +1022,7 @@ Not all components are transitively connected. Connectivity is explicitly permis
 Adaptation in Axiom is classified by risk and authorization requirement:
 
 | Mutation Class | Description | Authorization Required |
-|---|---|---|
+| --- | --- | --- |
 | Operational calibration | Low-risk parameter adjustment within defined bounds | Automated, with audit |
 | Trust recalibration | Source or subsystem reliability score updates | Governance review |
 | Procedural refinement | Validator or workflow tuning | Governance review |
@@ -1016,6 +1033,7 @@ Adaptation in Axiom is classified by risk and authorization requirement:
 ### 19.2 Restricted Adaptation Zones
 
 The following must resist unsupervised drift:
+
 - Constitutional rules
 - Authority matrix
 - Audit logging standards
@@ -1036,6 +1054,7 @@ Axiom is specified as a reference architecture rather than a claim of immediate 
 ### 20.2 Near-Term Implementation Horizon
 
 The following subsystems can be prototyped with current systems:
+
 - Region-based routing
 - Proposal-validation loops
 - Domain tagging
@@ -1047,6 +1066,7 @@ The following subsystems can be prototyped with current systems:
 ### 20.3 Future-Dependent Components
 
 The following likely require substantial compute advances:
+
 - Dense world-scale probabilistic belief maintenance
 - Low-latency full-workspace cognition across many active regions
 - Large-scale multi-hypothesis simulation with strong consistency guarantees
@@ -1146,6 +1166,7 @@ A system claiming to implement Axiom should be evaluable against the following c
 **Description:** Separate model services for each Cognitive Region, connected by a typed message bus. Governance and validation are independent services.
 
 **Components:**
+
 - Separate inference services per region (language, symbolic, planning, etc.)
 - Typed message bus with schema enforcement
 - Independent validator services per domain
@@ -1160,6 +1181,7 @@ A system claiming to implement Axiom should be evaluable against the following c
 **Description:** One primary language and planning model, augmented with external validators, typed memory objects, governance middleware, and a restricted write path.
 
 **Components:**
+
 - Single large language/planning model as primary reasoner
 - External validator services for domain-specific checks
 - Typed belief object store with provenance tracking
@@ -1174,6 +1196,7 @@ A system claiming to implement Axiom should be evaluable against the following c
 **Description:** Neural backbone for language and planning, symbolic module for formal reasoning, trust- and provenance-aware state layer.
 
 **Components:**
+
 - Neural backbone for language, planning, and world modeling
 - Symbolic module for formal derivations and consistency checking
 - Provenance-aware state layer linking neural outputs to typed belief objects
@@ -1338,6 +1361,7 @@ The set of components responsible for durable storage, lifecycle management, and
 A system claiming to implement Axiom must include at minimum:
 
 **Required:**
+
 - A governance layer that can block or approve durable state mutations
 - Typed belief objects with provenance, confidence, and validation status
 - At least two differentiated cognitive modules with distinct authority limits
@@ -1346,6 +1370,7 @@ A system claiming to implement Axiom must include at minimum:
 - An auditable durable commit path with immutable records
 
 **Optional in early versions:**
+
 - Full workspace arbitration across many active regions
 - Advanced lens composition
 - Large-scale multi-hypothesis simulation

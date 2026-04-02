@@ -1132,4 +1132,3 @@ V0.4 should be treated as the first version that is architecturally defensible a
 # 28. One-Sentence Summary
 
 Project Axiom V0.4 is a future-oriented constitutional cognitive architecture designed to manage knowledge, uncertainty, governance, and modular reasoning as an integrated system rather than as a monolithic model with attached tools.
-
