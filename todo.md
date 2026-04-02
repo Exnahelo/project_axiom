@@ -5,6 +5,7 @@
 Each task must result in a **concrete artifact**, not just a decision.
 
 Every item should produce one or more of:
+
 - a written spec block
 - a diagram
 - a schema
@@ -14,268 +15,189 @@ If a task does not produce an artifact, it is incomplete.
 
 ---
 
-## Phase Alignment
+## Status: V0.5 Complete
 
-### V0.4 → V0.4.1 Transition (CRITICAL)
+`project_axiom_v_0_5.md` is the current reference architecture document. The following were delivered in V0.5 and do not need to be re-done:
 
-- [ ] Define Arbitration Layer
-  - [ ] Write 1–2 paragraph purpose statement
-  - [ ] List all inputs (conflict packet fields)
-  - [ ] Define decision procedure (step-by-step logic)
+- [x] Message schema (§8.4)
+- [x] Escalation triggers and rules (§7.4, §8.3)
+- [x] Authority matrix (§7.3)
+- [x] Region input/output contracts and authority boundaries (§15)
+- [x] Belief state transition model (§9.2)
+- [x] Durable state rules (§9.4)
+- [x] Threat model with response map (§12)
+- [x] Validation service schemas for all 7 domains (§10.2)
+- [x] Governance conflict resolution logic (§11.4)
+- [x] Proposal–validation pattern (§16)
+- [x] Routing policy examples (§14.4)
+- [x] Execution walkthroughs — 3 flows (§13)
+- [x] Minimal Viable Axiom definition (Appendix C)
+- [x] Evaluation criteria (§22)
+- [x] Implementation archetypes — 3 archetypes (§23)
+- [x] Core vocabulary split into component / state / control (Appendix B)
+- [x] Core invariants G1–I1 (§6)
+- [x] Human Oversight Interface spec (§5.13, §11.5)
+- [x] Contradiction object schema (Appendix B)
+
+---
+
+## Priority 1 — Schema and Protocol Specs
+
+These unlock simulation, implementation, and publication.
+
+- [ ] Belief object JSON schema
+  - [ ] Write full schema (fields + types)
+  - [ ] Define required vs optional fields
+  - [ ] Provide 3–5 annotated examples
+  - [ ] Define validation rules
+
+- [ ] Contradiction object JSON schema
+  - [ ] Formalize the schema defined in §13.2 into a typed spec
+  - [ ] Provide 2–3 examples (type, severity, resolution status)
+
+- [ ] Message schema JSON spec
+  - [ ] Formalize the table in §8.4 into a typed JSON schema
+  - [ ] Define lifecycle states (created / in-flight / acknowledged / failed)
+  - [ ] Create 3–5 example messages (one per message type)
+
+- [ ] Audit record schema
+  - [ ] Define all required fields
+  - [ ] Define event type taxonomy
+  - [ ] Provide 3–5 examples
+
+---
+
+## Priority 2 — Governance and Arbitration Formalization
+
+- [ ] Arbitration decision procedure
+  - [ ] Write step-by-step logic (not just description)
+  - [ ] Define inputs (conflict packet fields)
   - [ ] Define outputs (decision, confidence, trace)
   - [ ] Define authority boundaries (what it can/cannot override)
   - [ ] Define deadlock/fallback behavior
-  - [ ] Produce arbitration diagram (flowchart)
+  - [ ] Produce arbitration flowchart diagram
 
-- [ ] Define system-wide Message Schema
-  - [ ] List required fields
-  - [ ] Define JSON schema
-  - [ ] Define message types
-  - [ ] Define lifecycle states
-  - [ ] Define validation rules
-  - [ ] Create 3–5 example messages
+- [ ] Governance arbitration protocol
+  - [ ] Formalize the conflict resolution sequence from §11.4 into a rule set
+  - [ ] Define all resolution outputs with preconditions
+  - [ ] Define retry and timeout behavior
 
-- [ ] Define Escalation Triggers and Rules
-  - [ ] List all trigger categories
-  - [ ] Define thresholds (confidence, risk, authority)
-  - [ ] Define escalation levels
-  - [ ] Define escalation message format
-  - [ ] Define retry + timeout behavior
-  - [ ] Create escalation decision table
+- [ ] Constitutional minimal set
+  - [ ] Write the actual constitutional rules (not just categories)
+  - [ ] Define what makes a rule constitutional vs policy-level
+  - [ ] Define amendment procedure
 
-- [ ] Define Domain Coordinator Interface Contracts
-  - [ ] Define coordinator responsibilities
-  - [ ] Define allowed actions
-  - [ ] Define forbidden actions
-  - [ ] Define required methods (input/output)
+- [ ] Deadlock resolution strategy
+  - [ ] List concrete deadlock scenarios
+  - [ ] Define resolution pathway for each
+  - [ ] Define fallback to human oversight trigger conditions
+
+---
+
+## Priority 3 — Coordination and Routing
+
+- [ ] Domain Coordinator interface contracts
+  - [ ] Define coordinator responsibilities (formal)
+  - [ ] Define allowed and forbidden actions
+  - [ ] Define required methods (input/output signatures)
   - [ ] Define state structure
-  - [ ] Create sequence diagram (region → coordinator → arbitration)
+  - [ ] Create sequence diagram: region → coordinator → arbitration
 
-- [ ] Define Cognitive Cycle Model
-  - [ ] Choose cycle type (event-driven / phased / hybrid)
+- [ ] Routing specification
+  - [ ] Formalize §14 routing policy examples into executable routing rules
+  - [ ] Define routing decision algorithm
+  - [ ] Define fallback routing behavior
+  - [ ] Define routing audit requirements
+
+- [ ] Cognitive cycle model
+  - [ ] Choose cycle type: event-driven / phased / hybrid
   - [ ] Define full processing loop
-  - [ ] Define triggers for each phase/event
-  - [ ] Define timing/latency expectations
+  - [ ] Define triggers for each phase or event
+  - [ ] Define timing and latency expectations
   - [ ] Create cycle diagram
 
 ---
 
-## Core Architecture Completion
+## Priority 4 — Memory and Knowledge
 
-### Governance
+- [ ] Consolidation algorithm
+  - [ ] Define selection rules (what gets consolidated)
+  - [ ] Define decay rules (what gets archived or pruned)
+  - [ ] Define merge rules (how conflicting beliefs are handled)
+  - [ ] Define consolidation cycle trigger conditions
 
-- [ ] Formalize governance topology
-  - [ ] Draw governance layer diagram
-  - [ ] Define interaction points with all subsystems
+- [ ] Snapshot isolation spec
+  - [ ] Define read/write separation rules
+  - [ ] Define snapshot creation triggers
+  - [ ] Define rollback conditions
 
-- [ ] Define governance enforcement timing
-  - [ ] Pre-execution rules
-  - [ ] Post-execution rules
-  - [ ] Continuous monitoring rules
-
-- [ ] Define governance override mechanics
-  - [ ] Write override rules
-  - [ ] Define precedence hierarchy
-
-- [ ] Define deadlock resolution strategy
-  - [ ] List deadlock scenarios
-  - [ ] Define resolution pathways
-
-### Epistemic System
-
-- [ ] Define belief object schema
-  - [ ] Write full schema (fields + types)
-  - [ ] Provide examples
-
-- [ ] Define belief update math
-  - [ ] Define update formulas or heuristics
-  - [ ] Define constraints (bounded updates)
-
-- [ ] Define contradiction formalism
-  - [ ] Define contradiction types
-  - [ ] Define detection rules
-  - [ ] Define handling logic
-
-- [ ] Define confidence composition
-  - [ ] Define how confidence combines across domains
-
-### Domains
-
-- [ ] Justify all 7 domains
-  - [ ] Write purpose for each domain
-  - [ ] Define why it cannot be merged
-
-- [ ] Define processing differences
-  - [ ] Define validation rules per domain
-
-- [ ] Define cross-domain interaction rules
-  - [ ] Define merge logic
-  - [ ] Define arbitration triggers
-
-- [ ] Define domain translation rules
-  - [ ] Define how data moves between domains
+- [ ] Quarantine lifecycle spec
+  - [ ] Define entry conditions (formal)
+  - [ ] Define exit conditions (formal)
+  - [ ] Define inspection rules (who can read, under what conditions)
+  - [ ] Define maximum quarantine duration or review trigger
 
 ---
 
-## Cognitive Architecture
+## Priority 5 — Diagrams and Visualization
 
-- [ ] Define region input/output contracts
-  - [ ] Define inputs
-  - [ ] Define outputs
+- [ ] Unified architecture diagram
+  - [ ] All 13 reference architecture components
+  - [ ] All major data flows
+  - [ ] Authority boundaries indicated
 
-- [ ] Define region authority boundaries
-  - [ ] Create authority table
+- [ ] Governance topology diagram
+  - [ ] Constitutional layer, lens layer, preference layer
+  - [ ] Interaction points with all subsystems
 
-- [ ] Define region failure behavior
-  - [ ] Define fallback modes
+- [ ] Escalation flow diagram
+  - [ ] Local → Domain → Global → Governance → Human
+  - [ ] Trigger conditions at each level
 
-- [ ] Define region communication rules
-  - [ ] Define allowed pathways
-
----
-
-## Orchestration
-
-- [ ] Define local coordination protocol
-  - [ ] Define routing logic
-
-- [ ] Define domain-level coordination protocol
-  - [ ] Define mediation logic
-
-- [ ] Define global workspace flow
-  - [ ] Define entry conditions
-  - [ ] Define exit conditions
-
-- [ ] Define orchestration failover
-  - [ ] Define redundancy rules
+- [ ] Belief lifecycle diagram
+  - [ ] Hypothesis → Candidate → Supported / Quarantined / Rejected → Consolidated → Archived / Reopened
 
 ---
 
-## Memory & Knowledge
+## Priority 6 — Research Extraction
 
-- [ ] Define memory write rules
-  - [ ] Who can write
-  - [ ] What validation is required
-
-- [ ] Define consolidation algorithm
-  - [ ] Selection rules
-  - [ ] Decay rules
-  - [ ] Merge rules
-
-- [ ] Define snapshot isolation
-  - [ ] Define read/write separation
-
-- [ ] Define quarantine lifecycle
-  - [ ] Entry conditions
-  - [ ] Exit conditions
-
----
-
-## Threat Model & Resilience
-
-- [ ] Expand threat model
-  - [ ] List attack types
-  - [ ] Define impact
-
-- [ ] Define circuit breakers
-  - [ ] Define trigger conditions
-
-- [ ] Define rollback strategy
-  - [ ] Define snapshot points
-
-- [ ] Define blast radius limits
-  - [ ] Define containment rules
-
----
-
-## Generator–Governor System
-
-- [ ] Define interaction protocol
-  - [ ] Define loop structure
-
-- [ ] Define retry rules
-  - [ ] Define max attempts
-
-- [ ] Define anti-capture safeguards
-  - [ ] Define diversity rules
-
-- [ ] Define disagreement metrics
-  - [ ] Define measurement
-
----
-
-## Interface Layer (BLOCKER)
-
-- [ ] Define full interface spec
-  - [ ] Combine all message + contract definitions
-
-- [ ] Define message types
-  - [ ] Enumerate all types
-
-- [ ] Define transport model
-  - [ ] Sync vs async vs pub/sub
-
-- [ ] Define failure handling
-  - [ ] Define retry + fallback rules
-
----
-
-## Diagram Readiness
-
-- [ ] Define interfaces (edges)
-- [ ] Define topology (nodes + edges)
-- [ ] Select diagram standard
-- [ ] Produce full system diagram
-
----
-
-## Research & Papers
-
-- [ ] Domain-aware truth model
-- [ ] Governance arbitration
-- [ ] Contradiction framework
-- [ ] Cognitive architecture
-
----
-
-## Implementation Track (Optional)
-
-- [ ] Build region router
-- [ ] Build belief storage
-- [ ] Build generator–governor loop
-- [ ] Simulate contradictions
+- [ ] Domain-aware truth model paper outline
+- [ ] Governance arbitration in modular AI paper outline
+- [ ] Contradiction tolerance in cognitive architectures paper outline
+- [ ] Provenance-weighted belief revision paper outline
+- [ ] Layered memory consolidation for governed agents paper outline
 
 ---
 
 ## Strategic
 
-- [ ] Setup GitHub repo
-- [ ] Write README
-- [ ] Version documents
+- [x] Setup GitHub repo
+- [ ] Update README for V0.5
+- [x] Version documents (V0.1–V0.5 present)
 - [ ] Decide IP strategy
 
 ---
 
 ## Meta
 
-- [ ] Track assumptions
-- [ ] Track risks
-- [ ] Maintain glossary
-- [ ] Track version changes
+- [ ] Maintain glossary document (separate from Appendix B)
+- [ ] Track open assumptions
+- [ ] Track open risks
+- [ ] Track version changes (changelog)
 
 ---
 
 ## Priority Focus
 
-1. Arbitration Layer
-2. Message Schema
-3. Escalation Rules
-4. Domain Coordinator Contracts
-5. Cognitive Cycle Model
+1. Belief object JSON schema
+2. Message schema JSON spec
+3. Arbitration decision procedure
+4. Domain Coordinator interface contracts
+5. Routing specification
 
 These unlock:
+
 - diagrams
 - simulation
 - implementation
 - publication
-
